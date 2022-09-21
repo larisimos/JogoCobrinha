@@ -4,7 +4,7 @@
      height: 300px;
      background-color: rgb(255, 255, 255);
      text-align: center;
-     border: 200px;
+     border: 2px;
      display: flex;
      left: 30vw;
 
@@ -24,7 +24,7 @@
     width: 50px; 
     height: 50px; 
     background-color:red; 
-    text-align: center;" 
+    text-align: center;
 }
 #div1 {
     position: absolute;
@@ -32,8 +32,9 @@
     left: 70px; 
     width: 50px; 
     height: 50px; 
+    background-image: url("./img/cobrinha.jpg");
     text-align: center;
 }
-.img{
-    width: -webkit-fill-available;
+img{
+    width: 100%;
 }
