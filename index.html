@@ -1,174 +1,166 @@
-<!DOCTYPE >
+<!DOCTYPE>
 <html lang="pt-br">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    </head>
-	<body>
-		<div class="fundo" id="fundo">
-			<div id="div2" >
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<div class="fundo" id="fundo">
+		<div id="div2">
 			<img alt="maçã" src="./img/maçã.jpg">
 		</div>
 		<div id="div1">
-         <img alt="cobrinha" src="./img/cobrinha.jpg">
+			<img alt="cobrinha" src="./img/cobrinha.jpg">
 		</div>
 		<div class="painel">
-			
-				<hr>
-				<button type="button"  id="acima" /><img alt="cima" src="./img/cima.png"></button><br>
-				<button type="button"  id="esquerda"/><img alt="esquerda" src="./img/esquerda.png"></button>
-				<button type="button"  id="direita" /><img alt="direita" src="./img/direita.png"></button><br>
-				<button type="button"  id="baixo" /><img alt="baixo" src="./img/baixo.png"></button><hr>
-				<hr>
-			
+
+			<hr>
+			<button type="button" id="acima" /><img alt="cima" src="./img/cima.png"></button><br>
+			<button type="button" id="esquerda" /><img alt="esquerda" src="./img/esquerda.png"></button>
+			<button type="button" id="direita" /><img alt="direita" src="./img/direita.png"></button><br>
+			<button type="button" id="baixo" /><img alt="baixo" src="./img/baixo.png"></button>
+			<hr>
+			<hr>
+
 		</div>
-		</div>
-		
-		<script>
-            // mover cursor 2 - automático
-			function moverdireita(){
-				div2.style.left = parseInt(getComputedStyle(div2).left)+5;
-				if ( parseInt(getComputedStyle(div2).left) >= 100  - parseInt(getComputedStyle(div2).width)){
-					clearInterval(m);
-					m = setInterval ("moveresquerda()",15);
-				}
+	</div>
+
+	<script>
+		// Mover cursor 1  - através dos botões
+		function move(Direcao) {
+			if (contador != 0) {
+				para();
 			}
-			function moveresquerda(){
-				div2.style.left = parseInt(getComputedStyle(div2).left)-5;
-				if ( parseInt(getComputedStyle(div2).left) <= 0){
-					clearInterval(m);
-					m = setInterval ("moverdireita()",15);
-				}
+			if (Direcao == "direita") {
+				timer = setInterval("direita()", 20);
+				contador++;
 			}
 
-            // Mover cursor 1  - através dos botões
-			function move(Direcao) {
-				if (contador != 0) {
-					para();
-				}
-				if (Direcao == "direita") {
-					timer = setInterval("direita()",15);
-					contador ++;
-				}
-
-				if (Direcao == "esquerda") {
-					timer = setInterval("esquerda()",15);
-					contador ++;
-				}
-
-				if (Direcao == "acima") {
-					timer = setInterval("acima()",15);
-					contador ++;
-				}
-
-				if (Direcao == "baixo") {
-					timer = setInterval("baixo()",15);
-					contador ++;
-				}
-			}
-            function direita() {
-				div1.style.left = parseInt(getComputedStyle(div1).left)+5;
-				if ( parseInt(getComputedStyle(div1).left) >= 900  - parseInt(getComputedStyle(div1).left)){
-					clearInterval(timer);
-					timer = setInterval ("esquerda()",15);
-				}
+			if (Direcao == "esquerda") {
+				timer = setInterval("esquerda()", 20);
+				contador++;
 			}
 
-			function esquerda() {
-				div1.style.left = parseInt(getComputedStyle(div1).left)-5;
-				if ( parseInt(div1.style.left) <= 0){
-					clearInterval(timer);
-					timer = setInterval ("direita()",15);
-				}
+			if (Direcao == "acima") {
+				timer = setInterval("acima()", 20);
+				contador++;
 			}
 
-			function baixo() {
-				div1.style.top = parseInt(getComputedStyle(div1).top)+5;
-				if(parseInt(getComputedStyle(div1).top) >= 300 - parseInt(getComputedStyle(div1).height)){
-					clearInterval(timer);
-				timer = setInterval("acima()",15);
-			    }
+			if (Direcao == "baixo") {
+				timer = setInterval("baixo()", 20);
+				contador++;
 			}
-			function acima() {
-				div1.style.top = parseInt(getComputedStyle(div1).top)-5;
-				if(parseInt(getComputedStyle(div1).top) <= 0 ){
+		}
+		function direita() {
+			div1.style.left = parseInt(getComputedStyle(div1).left) + 5;
+			if (parseInt(getComputedStyle(div1).left) >= 900 - parseInt(getComputedStyle(div1).left)) {
 				clearInterval(timer);
-				timer = setInterval("baixo()",15);
-				}
+				timer = setInterval("esquerda()", 20);
 			}
+		}
 
-            // Parar cursores
-			function para2(){
-				clearInterval(m);
-			}
-			function para() {
+		function esquerda() {
+			div1.style.left = parseInt(getComputedStyle(div1).left) - 5;
+			if (parseInt(div1.style.left) <= 0) {
 				clearInterval(timer);
+				timer = setInterval("direita()", 20);
 			}
-            // some maçã
-            function sumir(){
-                fundo.removeChild(div2);
+		}
 
-            }
-
-			
-
-			function altura(parametro) {
-				div1.style.height = parseInt(getComputedStyle(div1).height)+parametro;
+		function baixo() {
+			div1.style.top = parseInt(getComputedStyle(div1).top) + 5;
+			if (parseInt(getComputedStyle(div1).top) >= 300 - parseInt(getComputedStyle(div1).height)) {
+				clearInterval(timer);
+				timer = setInterval("acima()", 20);
 			}
-
-			function largura(parametro) {
-				div1.style.width = parseInt(getComputedStyle(div1).width)+parametro;
+		}
+		function acima() {
+			div1.style.top = parseInt(getComputedStyle(div1).top) - 5;
+			if (parseInt(getComputedStyle(div1).top) <= 0) {
+				clearInterval(timer);
+				timer = setInterval("baixo()", 20);
 			}
-			function cor(){
-			if(cont == 0){
-				document.getElementById("div1").style.backgroundColor="blue";
-				cont++;
-			}else{
-				if(cont == 1){
-					document.getElementById("div1").style.backgroundColor="orange";
-					cont++;
-		   	    }else{
-		   	    if(cont == 2){
-				    document.getElementById("div1").style.backgroundColor="yellow";
-				    cont = 0;
-		        	}
-		        }
-		    }
+		}
 
-		    }
+		// Parar cursores
+		function para2() {
+			clearInterval(m);
+		}
+		function para() {
+			clearInterval(timer);
+		}
+		// some maçã
+		function sumir() {
+			fundo.removeChild(div2);
 
-				function colisao(){
-					if (((parseInt(getComputedStyle(div1).left) >= parseInt(getComputedStyle(div2).left))&&(parseInt(getComputedStyle(div1).left) <= parseInt(getComputedStyle(div2).left)+50))&&
-						((parseInt(getComputedStyle(div1).top) >= parseInt(getComputedStyle(div2).top))&&(parseInt(getComputedStyle(div1).top) <= parseInt(getComputedStyle(div2).top)+50))){
-							para2();
-							para();
-                            sumir();
-					}
-					if (((parseInt(getComputedStyle(div2).left) >= parseInt(getComputedStyle(div1).left))&&(parseInt(getComputedStyle(div2).left) <= parseInt(getComputedStyle(div1).left)+50))&&
-						((parseInt(getComputedStyle(div2).top) >= parseInt(getComputedStyle(div1).top))&&(parseInt(getComputedStyle(div2).top) <= parseInt(getComputedStyle(div1).top)+50))){
-							para2();
-							para();
-                            sumir();
-					}
-				}
+		}
+		// parece maçã
+		function criar() {
+			latitude = parseInt(getComputedStyle(fundo).height);
+			longitude = parseInt(getComputedStyle(fundo).width);
+			Novamaça = document.createElement("div");
+			Novamaça.setAttribute("id", "div2");
+			fundo.appendChild(Novamaça);
+			Novamaça.style.top = Math.floor(Math.random() * latitude);
+			Novamaça.style.left = Math.floor(Math.random() * longitude);
+			Maçaimg = document.createElement("img");
+			Maçaimg.setAttribute("src", "./img/maçã.jpg")
+			Maçaimg.setAttribute("alt", "maçã")
+			Novamaça.appendChild(Maçaimg)
+	
 
 
-            //Ao carregar a página estas linhas são executadas. Funções que são chamadas a cada 15 e 5 milisegundos
-			let contador = 0;
-            let cont = 0;
-	   		let m = setInterval("moverdireita()", 15);
-			let n = setInterval("colisao()", 5);
-            
-            document.querySelector("#acima").addEventListener("click", ()=>{move('acima')});
-            document.querySelector("#esquerda").addEventListener("click",()=>{ move('esquerda')});
-            document.querySelector("#direita").addEventListener("click",()=>{ move('direita')});
-            document.querySelector("#baixo").addEventListener("click",()=>{ move('baixo')});
-            document.querySelector("#acima").addEventListener("click",()=>{ move('acima')});
-            document.querySelector("#para").addEventListener("click",()=>{ para()});
-            document.querySelector("#para2").addEventListener("click", ()=>{para2()});
+		}
 
-		</script>
-	</body>
+
+
+
+		function altura(parametro) {
+			div1.style.height = parseInt(getComputedStyle(div1).height) + parametro;
+		}
+
+		function largura(parametro) {
+			div1.style.width = parseInt(getComputedStyle(div1).width) + parametro;
+		}
+
+
+		function colisao() {
+			if (((parseInt(getComputedStyle(div1).left) >= parseInt(getComputedStyle(div2).left)) && (parseInt(getComputedStyle(div1).left) <= parseInt(getComputedStyle(div2).left) + 50)) &&
+				((parseInt(getComputedStyle(div1).top) >= parseInt(getComputedStyle(div2).top)) && (parseInt(getComputedStyle(div1).top) <= parseInt(getComputedStyle(div2).top) + 50))) {
+				para2();
+				para();
+				sumir();
+				criar();
+			}
+			if (((parseInt(getComputedStyle(div2).left) >= parseInt(getComputedStyle(div1).left)) && (parseInt(getComputedStyle(div2).left) <= parseInt(getComputedStyle(div1).left) + 50)) &&
+				((parseInt(getComputedStyle(div2).top) >= parseInt(getComputedStyle(div1).top)) && (parseInt(getComputedStyle(div2).top) <= parseInt(getComputedStyle(div1).top) + 50))) {
+				para2();
+				para();
+				sumir();
+				criar();
+			}
+		}
+
+
+		//Ao carregar a página estas linhas são executadas. Funções que são chamadas a cada 15 e 5 milisegundos
+		let contador = 0;
+		let cont = 0;
+		let m = setInterval("moverdireita()", 15);
+		let n = setInterval("colisao()", 5);
+
+		document.querySelector("#acima").addEventListener("click", () => { move('acima') });
+		document.querySelector("#esquerda").addEventListener("click", () => { move('esquerda') });
+		document.querySelector("#direita").addEventListener("click", () => { move('direita') });
+		document.querySelector("#baixo").addEventListener("click", () => { move('baixo') });
+		document.querySelector("#acima").addEventListener("click", () => { move('acima') });
+		document.querySelector("#para").addEventListener("click", () => { para() });
+		document.querySelector("#para2").addEventListener("click", () => { para2() });
+
+	</script>
+</body>
+
 </html>
