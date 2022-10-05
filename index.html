@@ -61,7 +61,9 @@
 				div1.style.left = div1Left+5;
 				if ( div1Left >= fundoWidth  - div1Width){
 					para();
-					alert("Você matou a Gertrudes :(");
+					fail.play();
+					alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos);
+					
 				}
 		}
 
@@ -71,7 +73,8 @@
 				div1.style.left = div1Left-5;
 				if ( div1Left <= 0){
 					para();
-					alert("Você matou a Gertrudes :(");				}
+					fail.play();
+					alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos);		}
 			}
 
 			function baixo() {
@@ -82,7 +85,8 @@
 				div1.style.top = div1Top+5;
 				if(div1Top >= fundoHeight - div1Height){
 					para();
-					alert("Você matou a Gertrudes :(");			    }
+					fail.play();
+					alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos);		    }
 			}
 			function acima() {
 				let div1Top= parseInt(getComputedStyle(div1).top);
@@ -90,7 +94,8 @@
 				div1.style.top = div1Top-5;
 				if(div1Top <= 0 ){
 				para();
-				alert("Você matou a Gertrudes :(");				}
+				fail.play();
+				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos);			}
 			}
 		// Parar cursores
 		
@@ -100,6 +105,7 @@
 		// some maçã
 		function sumir() {
 			fundo.removeChild(div2);
+			mordida.play();
 
 		}
 		// aparece maçã
@@ -114,12 +120,12 @@
 			Maçaimg = document.createElement("img");
 			Maçaimg.setAttribute("src", "./img/maçã.jpg")
 			Maçaimg.setAttribute("alt", "maçã")
-			Novamaça.appendChild(Maçaimg)
+			Novamaça.appendChild(Maçaimg);
+			pontos += 10
 	
 
 
 		}
-		//pontuação
 		
 
 
@@ -148,9 +154,11 @@
 
 		//Ao carregar a página estas linhas são executadas. Funções que são chamadas a cada 15 e 5 milisegundos
 		let contador = 0;
+		let pontos = 0;
 		let cont = 0;
 		let n = setInterval("colisao()", 5);
-		let maçã= 0;
+		const mordida = new Audio("sons/mordidafoda_.mp3");
+		const fail= new Audio ("sons/fail.mp3")
 
 		document.querySelector("#acima").addEventListener("click", () => { move('acima') });
 		document.querySelector("#esquerda").addEventListener("click", () => { move('esquerda') });
