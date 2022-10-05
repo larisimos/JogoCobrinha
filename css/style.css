@@ -1,4 +1,6 @@
-
+body{
+   background-color: rgb(83, 83, 83);;
+}
 .fundo {
     position: absolute;
     width: 50vw;
@@ -8,14 +10,14 @@
     display: flex;
     top: 5vw;
     left:20vw;
-    border: 10px solid transparent;
+    border: 15px solid transparent;
     padding: 15px;
     border-image: url(../img/moldura.jpg) 100 round;
   }
   
 .painel {
    position: absolute;
-     top: 40vw; 
+     top: 50vh; 
      left:10vw;  
     text-align: center;
     background-color: rgb(83, 83, 83);
