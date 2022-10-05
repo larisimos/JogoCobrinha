@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>JOGO DA COBRINHA</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -18,14 +18,12 @@
 		</div>
 		<div class="painel">
 
-			<hr>
+			
 			<button type="button" id="acima" /><img alt="cima" src="./img/cima.png"></button><br>
 			<button type="button" id="esquerda" /><img alt="esquerda" src="./img/esquerda.png"></button>
 			<button type="button" id="direita" /><img alt="direita" src="./img/direita.png"></button><br>
 			<button type="button" id="baixo" /><img alt="baixo" src="./img/baixo.png"></button>
-			<hr>
-			<hr>
-
+			
 		</div>
 	</div>
 
@@ -36,60 +34,66 @@
 				para();
 			}
 			if (Direcao == "direita") {
-				timer = setInterval("direita()", 20);
+				timer = setInterval("direita()", 30);
 				contador++;
 			}
 
 			if (Direcao == "esquerda") {
-				timer = setInterval("esquerda()", 20);
+				timer = setInterval("esquerda()", 30);
 				contador++;
 			}
 
 			if (Direcao == "acima") {
-				timer = setInterval("acima()", 20);
+				timer = setInterval("acima()", 30);
 				contador++;
 			}
 
 			if (Direcao == "baixo") {
-				timer = setInterval("baixo()", 20);
+				timer = setInterval("baixo()", 30);
 				contador++;
 			}
-		}
+		} //timer= cobrinha(div 1) 
 		function direita() {
-			div1.style.left = parseInt(getComputedStyle(div1).left) + 5;
-			if (parseInt(getComputedStyle(div1).left) >= 900 - parseInt(getComputedStyle(div1).left)) {
-				clearInterval(timer);
-				timer = setInterval("esquerda()", 20);
-			}
+				let div1Left= parseInt(getComputedStyle(div1).left);
+				let fundoWidth= parseInt(getComputedStyle(fundo).width);
+				let div1Width= parseInt(getComputedStyle(div1).width);
+
+				div1.style.left = div1Left+5;
+				if ( div1Left >= fundoWidth  - div1Width){
+					para();
+					alert("Você matou a Gertrudes :(");
+				}
 		}
 
-		function esquerda() {
-			div1.style.left = parseInt(getComputedStyle(div1).left) - 5;
-			if (parseInt(div1.style.left) <= 0) {
-				clearInterval(timer);
-				timer = setInterval("direita()", 20);
+			function esquerda() {
+				let div1Left= parseInt(getComputedStyle(div1).left);
+				
+				div1.style.left = div1Left-5;
+				if ( div1Left <= 0){
+					para();
+					alert("Você matou a Gertrudes :(");				}
 			}
-		}
 
-		function baixo() {
-			div1.style.top = parseInt(getComputedStyle(div1).top) + 5;
-			if (parseInt(getComputedStyle(div1).top) >= 300 - parseInt(getComputedStyle(div1).height)) {
-				clearInterval(timer);
-				timer = setInterval("acima()", 20);
-			}
-		}
-		function acima() {
-			div1.style.top = parseInt(getComputedStyle(div1).top) - 5;
-			if (parseInt(getComputedStyle(div1).top) <= 0) {
-				clearInterval(timer);
-				timer = setInterval("baixo()", 20);
-			}
-		}
+			function baixo() {
+				let div1Top= parseInt(getComputedStyle(div1).top);
+				let fundoHeight= parseInt(getComputedStyle(fundo).height);
+				let div1Height= parseInt(getComputedStyle(div1).height);
 
+				div1.style.top = div1Top+5;
+				if(div1Top >= fundoHeight - div1Height){
+					para();
+					alert("Você matou a Gertrudes :(");			    }
+			}
+			function acima() {
+				let div1Top= parseInt(getComputedStyle(div1).top);
+
+				div1.style.top = div1Top-5;
+				if(div1Top <= 0 ){
+				para();
+				alert("Você matou a Gertrudes :(");				}
+			}
 		// Parar cursores
-		function para2() {
-			clearInterval(m);
-		}
+		
 		function para() {
 			clearInterval(timer);
 		}
@@ -98,7 +102,7 @@
 			fundo.removeChild(div2);
 
 		}
-		// parece maçã
+		// aparece maçã
 		function criar() {
 			latitude = parseInt(getComputedStyle(fundo).height);
 			longitude = parseInt(getComputedStyle(fundo).width);
@@ -115,8 +119,8 @@
 
 
 		}
-
-
+		//pontuação
+		
 
 
 		function altura(parametro) {
@@ -131,15 +135,11 @@
 		function colisao() {
 			if (((parseInt(getComputedStyle(div1).left) >= parseInt(getComputedStyle(div2).left)) && (parseInt(getComputedStyle(div1).left) <= parseInt(getComputedStyle(div2).left) + 50)) &&
 				((parseInt(getComputedStyle(div1).top) >= parseInt(getComputedStyle(div2).top)) && (parseInt(getComputedStyle(div1).top) <= parseInt(getComputedStyle(div2).top) + 50))) {
-				para2();
-				para();
 				sumir();
 				criar();
 			}
 			if (((parseInt(getComputedStyle(div2).left) >= parseInt(getComputedStyle(div1).left)) && (parseInt(getComputedStyle(div2).left) <= parseInt(getComputedStyle(div1).left) + 50)) &&
 				((parseInt(getComputedStyle(div2).top) >= parseInt(getComputedStyle(div1).top)) && (parseInt(getComputedStyle(div2).top) <= parseInt(getComputedStyle(div1).top) + 50))) {
-				para2();
-				para();
 				sumir();
 				criar();
 			}
@@ -149,17 +149,15 @@
 		//Ao carregar a página estas linhas são executadas. Funções que são chamadas a cada 15 e 5 milisegundos
 		let contador = 0;
 		let cont = 0;
-		let m = setInterval("moverdireita()", 15);
 		let n = setInterval("colisao()", 5);
+		let maçã= 0;
 
 		document.querySelector("#acima").addEventListener("click", () => { move('acima') });
 		document.querySelector("#esquerda").addEventListener("click", () => { move('esquerda') });
 		document.querySelector("#direita").addEventListener("click", () => { move('direita') });
 		document.querySelector("#baixo").addEventListener("click", () => { move('baixo') });
 		document.querySelector("#acima").addEventListener("click", () => { move('acima') });
-		document.querySelector("#para").addEventListener("click", () => { para() });
-		document.querySelector("#para2").addEventListener("click", () => { para2() });
-
+		
 	</script>
 </body>
 
