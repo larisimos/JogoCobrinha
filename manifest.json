@@ -1,0 +1,45 @@
+{
+	"short_name": "jOGO DA COBRINHA",
+	"name": "JOGO DA COBRINHA",
+	"lang": "pt",
+	"description": "O jogo da cobrinha é legal",
+	"start_url": "index.html",
+	"background_color": "#18970e",
+	"theme_color": "#00e779",
+	"dir": "ltr",
+	"display": "fullscreen",
+	"orientation": "any",
+	"icons": [
+		{
+			"src": "./img/icon_x48.png",
+			"type": "image/png",
+			"sizes": "48x48"
+		},
+		{
+			"src": "./img/icon_x72.png",
+			"type": "image/png",
+			"sizes": "72x72"
+		},
+		{
+			"src": "./img/icon_x96.png",
+			"type": "image/png",
+			"sizes": "96x96"
+		},
+		{
+			"src": "./img/icon_x128.png",
+			"type": "image/png",
+			"sizes": "128x128"
+		},
+		{
+			"src": "./img/icon_x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "./img/icon_x384.png",
+			"type": "image/png",
+			"sizes": "384x384"
+		}
+	],
+	"prefer_related_applications": false
+}
