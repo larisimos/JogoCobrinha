@@ -6,6 +6,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>JOGO DA COBRINHA</title>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="manifest" href="./manifest.json" />
+	<script>
+		if ('serviceWorker' in navigator) {
+		  navigator.serviceWorker.register('./sw.js')
+			 .then(function () {console.log('service worker registered');})
+			 .catch(function () {console.log('service worker failed'); });
+		}
+	  </script>
 </head>
 
 <body>
@@ -16,8 +24,20 @@
 		<div id="div1">
 			<img alt="cobrinha" src="./img/cobrinha.jpg">
 		</div>
-		<div class="painel">
+		</div>
+	 <div class="iniciar" id="iniciar">
+			<button type="button" id="jogar"> Jogar </button>
+			<button type="button" id="olhar"> instruções </button>
+		</div>
+		<div id="instruções" class="instruções">
+			<img alt="instruções" src="./img/card.png"> 
+		</div>
+	
+		<div class= "alertmorreu" >
 
+			<button type="button"></button>
+		</div>
+	<div class="painel">
 			
 			<button type="button" id="acima" ><img alt="cima" src="./img/cima.png"></button><br>
 			<button type="button" id="esquerda" ><img alt="esquerda" src="./img/esquerda.png"></button>
@@ -28,6 +48,21 @@
 	</div>
 
 	<script>
+		// começa o jogo
+		function jogar(){
+
+			let Começo=document.querySelector(".iniciar") 
+			Começo.parentElement.removeChild(Começo)
+
+		}
+		//abre e fecha as instruções no iniciar
+		function abrir() {
+				document.getElementById('instruções').style.display = 'block';
+		}
+			function fechar() {
+				document.getElementById('instruções').style.display = 'none';
+			}
+
 		// Mover cursor 1  - através dos botões
 		function move(Direcao) {
 			if (contador != 0) {
@@ -164,7 +199,7 @@
 		document.querySelector("#esquerda").addEventListener("click", () => { move('esquerda') });
 		document.querySelector("#direita").addEventListener("click", () => { move('direita') });
 		document.querySelector("#baixo").addEventListener("click", () => { move('baixo') });
-		document.querySelector("#acima").addEventListener("click", () => { move('acima') });
+		document.querySelector("#jogar").addEventListener("click", () => { jogar() });
 		
 	</script>
 </body>
