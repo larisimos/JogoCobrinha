@@ -55,7 +55,6 @@ body{
     background-color: blue;
     border: 5px solid rgb(255, 255, 255);
     display: flex;
-    z-index: -1;
 }  
 #div2 {
    position: absolute; 
