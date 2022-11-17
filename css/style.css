@@ -49,8 +49,8 @@ body{
   }
 .painel {
    position: absolute;
-     top: 50vh; 
-     left:10vw;  
+     top: 55vh; 
+     left:20vw;  
     text-align: center;
     background-color: blue;
     border: 5px solid rgb(255, 255, 255);
