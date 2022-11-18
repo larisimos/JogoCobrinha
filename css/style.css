@@ -34,7 +34,7 @@
     top: 5vw;
     height: 60vh;
     width: 50vw;
-    background-image: url(../img/card.png);
+    background-image: url(./img/card.png);
     display: flex;
     flex-direction: row;
     align-items: center;
