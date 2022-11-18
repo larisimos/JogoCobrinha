@@ -1,3 +1,26 @@
+body {
+    background-color: blue;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.fundo {
+    position: absolute;
+    width: 65vw;
+    height: 80vh;
+    background-image: url(../img/grama.jpg);
+    display: flex;
+    text-align: center;
+    left: 15vw;
+    right: 20vw;
+    top: 2vw;
+    border: 15px solid transparent;
+    padding: 5px;
+    border-image: url(../img/moldura.jpg) 100 round;
+}
+
 .popup-wrapper {
     display: none;
     background: rgba(0, 0, 0, .5);
@@ -34,7 +57,7 @@
     top: 5vw;
     height: 60vh;
     width: 50vw;
-    background-image: url(./img/card.png);
+    background-image: url(../img/card.png);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -44,7 +67,7 @@
 
 
 .iniciar {
-    display: block;
+    display: none;
 }
 
 
