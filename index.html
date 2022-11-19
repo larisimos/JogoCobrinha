@@ -34,7 +34,8 @@
 			<div id="x" class="popup-close"> x </div>
 			<div id="instruções" class="instruções">
 				<h2> Instruções </h2>
-				<p>O objetivo é comer o máximo de maçãs e desviar para não bater nas bordas, caso isso aconteça você acaba matando pobre da cobrinha Gertrudes. Bom jogo! </p>
+				<p>O objetivo é comer o máximo de maçãs e desviar para não bater nas bordas, caso isso aconteça você
+					acaba matando pobre da cobrinha Gertrudes. Bom jogo! </p>
 			</div>
 		</div>
 	</div>
@@ -49,7 +50,7 @@
 		<button type="button" id="esquerda"><img alt="esquerda" src="./img/esquerda.png"></button>
 		<button type="button" id="direita"><img alt="direita" src="./img/direita.png"></button><br>
 		<button type="button" id="baixo"><img alt="baixo" src="./img/baixo.png"></button>
-
+		<button type="button" onClick="reiniciar()">REINICIAR!</button>
 	</div>
 	</div>
 
@@ -68,10 +69,10 @@
 			popup.style.display = 'block'
 		}
 		//fecha as instruções
-		function b(){
-		let fechar = document.querySelector('.popup-wrapper')
-		fechar.parentElement.removeChild(fechar)
-		}	
+		function b() {
+			let fechar = document.querySelector('.popup-wrapper')
+			fechar.parentElement.removeChild(fechar)
+		}
 
 		// Mover cursor 1  - através dos botões
 		function move(Direcao) {
@@ -107,7 +108,7 @@
 			if (div1Left >= fundoWidth - div1Width) {
 				para();
 				fail.play();
-				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie a página.");
+				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.");
 
 			}
 		}
@@ -119,7 +120,7 @@
 			if (div1Left <= 0) {
 				para();
 				fail.play();
-				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie a página.");
+				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.");
 			}
 		}
 
@@ -132,7 +133,7 @@
 			if (div1Top >= fundoHeight - div1Height) {
 				para();
 				fail.play();
-				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie a página.");
+				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.");
 			}
 		}
 		function acima() {
@@ -142,7 +143,7 @@
 			if (div1Top <= 0) {
 				para();
 				fail.play();
-				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie a página.");
+				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.");
 			}
 		}
 		// Parar cursores
@@ -198,6 +199,11 @@
 				criar();
 			}
 		}
+		// reiniciar
+		function reiniciar() {
+			window.location.reload();
+		}
+
 
 
 		//Ao carregar a página estas linhas são executadas. Funções que são chamadas a cada 15 e 5 milisegundos
@@ -214,9 +220,9 @@
 		document.querySelector("#direita").addEventListener("click", () => { move('direita') });
 		document.querySelector("#baixo").addEventListener("click", () => { move('baixo') });
 		document.querySelector("#jogar").addEventListener("click", () => { jogar() });
-		document.querySelector("#olhar").addEventListener("click", () => { a () });
+		document.querySelector("#olhar").addEventListener("click", () => { a() });
 		document.querySelector("#x").addEventListener("click", () => { b() });
-		
+
 
 	</script>
 </body>
