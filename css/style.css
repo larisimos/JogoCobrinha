@@ -1,3 +1,5 @@
+@media (min-width: 400px) {}
+
 body {
     background-color: blue;
 }
@@ -33,7 +35,7 @@ body {
 
 .popup {
     z-index: 1;
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     text-align: center;
     width: 100%;
     max-width: 300px;
@@ -84,7 +86,7 @@ body {
 .painel {
     position: absolute;
     top: 83vh;
-    left: 25vw;
+    left: 20vw;
     text-align: center;
     background-color: blue;
     border: 5px solid rgb(255, 255, 255);
