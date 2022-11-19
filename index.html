@@ -40,10 +40,7 @@
 		</div>
 	</div>
 
-	<div class="alertmorreu">
-
-		<button type="button"></button>
-	</div>
+	<div id="result"></div>
 	<div class="painel">
 
 		<button type="button" id="acima"><img alt="cima" src="./img/cima.png"></button><br>
@@ -108,8 +105,7 @@
 			if (div1Left >= fundoWidth - div1Width) {
 				para();
 				fail.play();
-				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.");
-
+				alertar()
 			}
 		}
 
@@ -120,7 +116,8 @@
 			if (div1Left <= 0) {
 				para();
 				fail.play();
-				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.");
+				alertar();
+
 			}
 		}
 
@@ -133,7 +130,7 @@
 			if (div1Top >= fundoHeight - div1Height) {
 				para();
 				fail.play();
-				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.");
+				alertar();
 			}
 		}
 		function acima() {
@@ -143,7 +140,7 @@
 			if (div1Top <= 0) {
 				para();
 				fail.play();
-				alert("Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.");
+				alertar();
 			}
 		}
 		// Parar cursores
@@ -202,6 +199,14 @@
 		// reiniciar
 		function reiniciar() {
 			window.location.reload();
+		}
+
+		//alert
+		result = document.querySelector('#result');
+
+		function alertar() {
+			result.innerHTML = "Você matou a Gertrudes :(\n sua pontuação final foi de: " + pontos + "\n Por favor, reinicie no botão abaixo.";
+			console.log('bah')
 		}
 
 
